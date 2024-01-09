@@ -26,7 +26,6 @@ SELECT MIN(replacement_cost) FROM film
 
 4- payment tablosunda en fazla sayıda alışveriş yapan müşterileri(customer) sıralayınız.
 
-SELECT customer_id,payment_id FROM payment
-WHERE customer_id = (
-SELECT MAX(customer_id) FROM payment
-);
+SELECT customer_id,COUNT(*) FROM payment
+GROUP BY customer_id
+ORDER BY COUNT(*) DESC;
